@@ -1,11 +1,5 @@
-﻿using CinemaVendas.Core.Services;
-using CinemaVendas.Core.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
+﻿using CinemaVendas.Core.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaVendas.API.Controllers
 {
@@ -15,14 +9,21 @@ namespace CinemaVendas.API.Controllers
     {
         private readonly IFinancialsService _financialService;
 
-        public FinancialController(FinancialsService financialsService)
+        public FinancialController(IFinancialsService financialsService)
         {
             _financialService = financialsService;
         }
 
+        [HttpGet("Total")]
         public IActionResult GetTotalSold()
         {
             return Ok(_financialService.GetTotalSold());
+        }
+
+        [HttpGet("Stats")]
+        public IActionResult GetStats()
+        {
+            return Ok(_financialService.GetStats());
         }
     }
 }

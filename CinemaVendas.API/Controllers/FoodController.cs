@@ -1,10 +1,5 @@
 ﻿using CinemaVendas.Core.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaVendas.API.Controllers
 {
@@ -19,6 +14,7 @@ namespace CinemaVendas.API.Controllers
             _ticketService = ticketService;
         }
 
+        [HttpGet]
         public IActionResult GetTickets()
         {
             return Ok(_ticketService.GetAllSold());
