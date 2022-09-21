@@ -15,14 +15,14 @@ namespace CinemaVendas.API.Controllers
     {
         private readonly IFinancialsService _financialService;
 
-        public FoodController(FinancialsService financialsService)
+        public FinancialController(FinancialsService financialsService)
         {
             _financialService = financialsService;
         }
 
-        public IActionResult GetTickets()
+        public IActionResult GetTotalSold()
         {
-            return Ok(_ticketService.GetAllSold());
+            return Ok(_financialService.GetTotalSold());
         }
     }
 }
