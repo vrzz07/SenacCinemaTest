@@ -15,9 +15,14 @@ namespace CinemaVendas.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetTickets()
+        public IActionResult GetFoodSold()
         {
-            return Ok(_ticketService.GetAllSold());
+            var result = _ticketService.GetAllSold();
+
+            if(result.Count < 1)
+                return NotFound(result);
+
+            return Ok(result);
         }
     }
 }
