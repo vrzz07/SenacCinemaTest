@@ -35,7 +35,7 @@ namespace CinemaVendas.API.Test
             //Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
             var amount = Assert.IsType<Decimal>(okResult.Value);
-            Assert.Equal(total +1, amount);
+            Assert.Equal(total, amount);
         }
     }
 }
